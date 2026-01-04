@@ -18,9 +18,21 @@ export function isSongInPlaylist(playlist, song) {
  * @returns {boolean} whether all `numbers` are even
  * @returns `undefined` if `numbers` is empty
  */
+//An array is empty if and only if its .length is 0.
 export function isAllEven(numbers) {
-  // TODO
+  if (numbers.length === 0) {
+    return undefined;
+  }
+
+  for (const number of numbers) {
+    if (number % 2 !== 0) {
+      return false;
+    }
+  }
+
+  return true;
 }
+
 
 /**
  * You're in charge of a group camping trip. You've packed supplies in a backpack,
@@ -32,5 +44,21 @@ export function isAllEven(numbers) {
  * @returns {boolean} whether there is enough food in the backpack to feed everyone
  */
 export function haveEnoughFood(backpack, people) {
-  // TODO
+  if (people === 0) {
+    return true;
+  }
+
+  let foodCount = 0;
+  
+//Loop through the backpack.
+//Each time an item has category === "food", increase the food count by 1
+
+  for (const item of backpack) {
+    if (item.category === "food") {
+      foodCount++;
+    }
+  }
+
+  return foodCount >= people;
 }
+

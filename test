@@ -1,0 +1,10 @@
+clear
+clear
+ls
+cd
+pwd
+npm run test
+kill
+
+
+pwd

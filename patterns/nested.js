@@ -36,15 +36,58 @@ export function makeBoard(rows, cols) {
  * @returns `[]` if `size` is 0 or negative
  */
 export function makeTriangle(size) {
-  // TODO
+
+  if (typeof size !== "number") {
+    return null;
+  }
+
+  if (size <= 0) {
+    return [];
+  }
+// make a container
+  const triangle = [];
+
+  for (let i = 1; i <= size; i++) {
+    const row = [];
+    for (let j = 0; j < i; j++) {
+      row.push("-");
+    }
+    triangle.push(row);
+  }
+
+  return triangle;
 }
+
 
 /**
  * @param {string[]} words
  * @param {string} letter - a single character
  * @returns {number}  the number of times `letter` appears in all the words
  * @returns `0` if `letter is not a string
+ * for testing look at the words being used in the test itself to begin to design the code. 
  */
 export function countLetter(words, letter) {
-  // TODO
+ if (typeof letter !== "string") {
+  return 0;
+}
+
+//empty array talks about length
+if (words.length === 0) {
+  return 0;
+}
+
+let count = 0;
+//wordS is defined, word new variable.
+//character new var defined is a single letter. 
+//if the character equals the letter count it in a loop. 
+//return the count. 
+for (const word of words) {
+    for (const character of word) {
+      if (character === letter) {
+        count++;
+      }
+    }
+  }
+
+  return count;
 }
